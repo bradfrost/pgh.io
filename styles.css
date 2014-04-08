@@ -1,0 +1,40 @@
+html, body {
+  height: 100%;
+  margin:0;
+}
+
+.vcenterer {
+  height: 100%;
+  text-align:center;
+}
+ 
+.vcenterer:before {
+  content: '';
+  display: inline-block;
+  height: 100%; 
+  vertical-align: middle;
+  margin-right:-.25em;
+}
+ 
+.vcentered {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 6em;
+  font-weight:300;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2em;
+  font-weight:300;
+  color: #888888;
+}
+
+a {
+  color: #666666;
+}

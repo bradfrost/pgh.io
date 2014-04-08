@@ -1,63 +1,50 @@
-
-<html>
+<html ng-app="gh-pages">
   <head>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <style>
-
-      html, body {
-        height: 100%;
-        margin:0;
-      }
-
-      .vcenterer {
-        height: 100%;
-        text-align:center;
-      }
-       
-      .vcenterer:before {
-        content: '';
-        display: inline-block;
-        height: 100%; 
-        vertical-align: middle;
-        margin-right:-.25em;
-      }
-       
-      .vcentered {
-        display: inline-block;
-        vertical-align: middle;
-        width: 100%;
-      }
-
-      h1 {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 6em;
-        font-weight:300;
-      }
-
-      h2 {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 2em;
-        font-weight:300;
-        color: #888888;
-      }
-
-      a {
-        color: #666666;
-      }
-      
-    </style>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/foundation.min.css">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular-resource.min.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
   </head>
   <body>
     <div class="vcenterer">
       <div class="vcentered">
         <h1>welcome to pgh.io</h1>
         <h2>coming soon</h2>
-        <h2>
-          <a href="https://github.com/openpgh/pgh.io">
-            <i class="fa fa-github fa-spin"></i>
-          </a>
-        </h3>
+
+        <div style="margin-top:4em;">
+          <h2>
+            <a href="https://github.com/openpgh/pgh.io">
+              <i class="fa fa-github fa-spin"></i>
+            </a>
+          </h2>
+
+          <div class="row" ng-controller="GitLogCtrl">
+            <table>
+              <tbody>
+                <tr ng-repeat="commit in data.commits">
+                  <td class="small-1 columns">
+                    <a href="{{commit.html_url}}">
+                      {{ commit.sha | limitTo:7 }}
+                    </a>
+                  </td>
+                  <td class="small-2 columns">
+                    {{ commit.commit.committer.date | date:'short' }}
+                  </td>
+                  <td class="small-2 columns">
+                    {{commit.commit.committer.name}}
+                  </td>
+                  <td class="small-7 columns">
+                    {{commit.commit.message}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   </body>
