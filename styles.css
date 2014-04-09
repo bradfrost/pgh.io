@@ -19,7 +19,6 @@ html, body {
 .vcentered {
   display: inline-block;
   vertical-align: middle;
-  width: 100%;
 }
 
 h1 {
