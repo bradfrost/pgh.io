@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   margin:0;
+  text-align:center;
 }
 
 .vcenterer {
@@ -36,4 +37,8 @@ h2 {
 
 a {
   color: #666666;
+}
+
+.padding {
+  margin-top:10em;
 }
